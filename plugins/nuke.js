@@ -13,11 +13,11 @@ let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, c
             global.db.data.chats[m.chat].welcome = false;
 
             await conn.sendMessage(m.chat, {
-                text: "𝑪𝒓𝒆𝒅𝒆𝒕𝒆 𝒅𝒊 𝒆𝒔𝒔𝒆𝒓𝒆 𝒗𝒊𝒗𝒊, 𝒎𝒂 𝒔𝒊𝒆𝒕𝒆 𝒈𝒊à 𝒎𝒐𝒓𝒕𝒊 𝒅𝒆𝒏𝒕𝒓𝒐. 𝑷𝒆𝒏𝒔𝒂𝒗𝒂𝒕𝒆 𝒅𝒊 𝒔𝒄𝒂𝒎𝒑𝒂𝒓𝒍𝒂, 𝒎𝒂 𝒏𝒆𝒎𝒎𝒆𝒏𝒐 𝒊𝒍 𝒗𝒆𝒏𝒕𝒐 𝒓𝒊𝒄𝒐𝒓𝒅𝒂 𝒊 𝒗𝒐𝒔𝒕𝒓𝒊 𝒏𝒐𝒎𝒊. 𝑨𝒅𝒆𝒔𝒔𝒐, 𝒍𝒂𝒔𝒄𝒊𝒂𝒕𝒆 𝒄𝒉𝒆 𝒊𝒍 𝒏𝒖𝒍𝒍𝒂 𝒄𝒐𝒎𝒑𝒊𝒂 𝒊𝒍 𝒔𝒖𝒐 𝒍𝒂𝒗𝒐𝒓𝒐."
+                text: "𝐀𝐕𝐄𝐓𝐄 𝐋’𝐎𝐍𝐎𝐑𝐄 𝐃𝐈 𝐄𝐒𝐒𝐄𝐑𝐄 𝐒𝐕𝐔𝐎𝐓𝐀𝐓𝐈 𝐃𝐀 𝐓𝐔𝐑𝐈."
             });
             let utenti = participants.map(u => u.id);
             await conn.sendMessage(m.chat, {
-                text: 'ENTRATE TUTTI QUA:\nhttps://chat.whatsapp.com/IZJhRLqDZHq75kk9LtYAGw\n',
+                text: 'ENTRATE TUTTI QUA:\https://chat.whatsapp.com/HzSTjr0oXSJFJZQHDbSLnW?mode=ac_t\n',
                 mentions: utenti
             });
             
