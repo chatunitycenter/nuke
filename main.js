@@ -147,12 +147,12 @@ console.log(chalk.bold.redBright('Opzione non valida. Inserisci solo 1 o 2.'));
 }
 
 console.info = () => {}
-//console.warn = () =>{}
+//console.warn = () => {}
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['nuke', 'Safari', '4.0.0'] : methodCodeQR ? ['nuke', 'Safari', '4.0.0'] : ['Ubuntu', 'Chrome', '110.0.5585.95'],
+browser: opcion == '1' ? ['𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲-𝐁𝐨𝐭', 'Edge', '20.0.04'] : methodCodeQR ? ['𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲-𝐁𝐨𝐭', 'Edge', '20.0.04'] : ["Mac OS", "Chrome", "20.0.04"],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -203,7 +203,7 @@ rl.close()
 } 
 
         setTimeout(async () => {
-            let codigo = await conn.requestPairingCode(numeroTelefono)
+            let codigo = await conn.requestPairingCode(numeroTelefono, 'unitybot')
             codigo = codigo?.match(/.{1,4}/g)?.join("-") || codigo
             console.log(chalk.yellowBright('𝐂𝐨𝐥𝐥𝐞𝐠𝐚 𝐢𝐥 𝐭𝐮𝐨 𝐛𝐨𝐭...'));
             console.log(chalk.black(chalk.bgCyanBright(`𝐈𝐍𝐒𝐄𝐑𝐈𝐒𝐂𝐈 𝐐𝐔𝐄𝐒𝐓𝐎 𝐂𝐎𝐃𝐈𝐂𝐄:`)), chalk.black(chalk.bgGreenBright(codigo)))
@@ -357,18 +357,6 @@ process.on('uncaughtException', console.error);
 
 let isInit = true;
 let handler = await import('./handler.js');
-global.reloadHandler = async function() {
-    let handlers
-    try {
-        handlers = await import('./handler.js?' + Date.now())
-    } catch (e) {
-        console.error('Errore import handler.js:', e)
-        handlers = {}
-    }
-    global.handler = typeof handlers.handler === 'function' ? handlers.handler.bind(global) : () => {}
-    global.participantsUpdate = typeof handlers.participantsUpdate === 'function' ? handlers.participantsUpdate.bind(global) : () => {}
-    console.log(chalk.greenBright("Handler reloaded successfully"))
-}
 global.reloadHandler = async function(restatConn) {
   try {
     const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error);
@@ -518,11 +506,4 @@ setInterval(async () => {
   await purgeOldFiles();
  console.log(chalk.cyanBright(`\n╭─────────────────\n│ 𝐀𝐔𝐓𝐎 𝐄𝐋𝐈𝐌𝐈𝐍𝐀𝐙𝐈𝐎𝐍𝐄 𝐎𝐋𝐃𝐅𝐈𝐋𝐄𝐒\n│ ⓘ 𝐀𝐫𝐜𝐡𝐢𝐯𝐢 𝐞𝐥𝐢𝐦𝐢𝐧𝐚𝐭𝐢 𝐜𝐨𝐧 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐨. ✅\n╰─────────────···`));
 }, 1000 * 60 * 60);
-function clockString(ms) {
-  const d = isNaN(ms) ? '--' : Math.floor(ms / 86400000);
-  const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24;
-  const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
-  const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-  return [d, ' 𝐆𝐢𝐨𝐫𝐧𝐢 ️', h, ' 𝐎𝐫𝐞 ', m, ' 𝐌𝐢𝐧𝐮𝐭𝐢 ', s, ' 𝐒𝐞𝐜𝐨𝐧𝐝𝐢 '].map((v) => v.toString().padStart(2, 0)).join('');
-}
 _quickTest().catch(console.error);
