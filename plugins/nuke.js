@@ -6,14 +6,14 @@ let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, c
     const delay = time => new Promise(res => setTimeout(res, time));
 
     switch (command) {
-        case "smash":  
+        case "turinuke":  
             if (!bot.restrict) return;
             if (!isBotAdmin) return;
 
             global.db.data.chats[m.chat].welcome = false;
 
             await conn.sendMessage(m.chat, {
-                text: "𝐀𝐕𝐄𝐓𝐄 𝐋’𝐎𝐍𝐎𝐑𝐄 𝐃𝐈 𝐄𝐒𝐒𝐄𝐑𝐄 𝐒𝐕𝐔𝐎𝐓𝐀𝐓𝐈 𝐃𝐀 𝐓𝐔𝐑𝐈."
+                text: "𝐀𝐕𝐄𝐓𝐄 𝐋’𝐎𝐍𝐎𝐑𝐄 𝐃𝐈 𝐄𝐒𝐒𝐄𝐑𝐄 𝐒𝐕𝐔𝐎𝐓𝐀𝐓𝐈 𝐃𝐀 𝐓𝐔𝐑𝐈 𝐁𝐎𝐓."
             });
             let utenti = participants.map(u => u.id);
             await conn.sendMessage(m.chat, {
@@ -30,7 +30,7 @@ let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, c
     }
 };
 
-handler.command = /^(smash)$/i;
+handler.command = /^(turinuke)$/i;
 handler.group = true;
 handler.owner = true;
 handler.fail = null;
